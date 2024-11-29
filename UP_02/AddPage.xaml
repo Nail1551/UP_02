@@ -33,7 +33,7 @@
         <TextBlock Text="Телефон" Grid.Row="5" Grid.Column="0" Margin="10,0,0,0"/>
         <TextBlock Text="Эл.почта" Grid.Row="6" Grid.Column="0" Margin="10,0,0,0"/>
         <TextBlock Text="Рейтинг" Grid.Row="7" Grid.Column="0" Margin="10,0,0,0"/>
-        <ComboBox  x:Name="Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290"  />
+        <ComboBox  x:Name="Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" SelectedItem="{Binding PartnersType}"   DisplayMemberPath="Name" SelectedValuePath="PartnersTypeID"/>
 
     </Grid>
 </Page>

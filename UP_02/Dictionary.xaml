@@ -9,5 +9,4 @@
     <Style TargetType="Grid">
         <Setter Property="Background" Value="#ffff"/>
     </Style>
-  
 </ResourceDictionary>

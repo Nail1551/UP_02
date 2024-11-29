@@ -40,5 +40,10 @@ namespace UP_02
 
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.
+        }
     }
 }
