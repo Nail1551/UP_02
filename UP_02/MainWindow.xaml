@@ -7,38 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView Name="partnersListView"  HorizontalAlignment="Center"  >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black" Margin="5" BorderThickness="1" >
-                        <Grid Margin="10" HorizontalAlignment="Stretch" Width="450"  >
-
-                            <WrapPanel Orientation="Vertical" HorizontalAlignment="Left">
-
-                                <WrapPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding PartnersType.Name}"/>
-                                    <TextBlock Text=" | "/>
-                                    <TextBlock Text="{Binding CompanyName}"/>
-                                </WrapPanel>
-                                <TextBlock Text="{Binding DirectorName}"/>
-                                <WrapPanel>
-                                    <TextBlock Text="+7 "/>
-                                    <TextBlock Text="{Binding Phone}"/>
-                                </WrapPanel>
-
-                                <WrapPanel Orientation="Horizontal" >
-                                    <TextBlock Text="Рейтинг: "/>
-                                    <TextBlock Text="{Binding Rating}"/>
-                                    <TextBlock Text="%"/>
-                                </WrapPanel>
-
-                            </WrapPanel>
-                            <TextBlock Text="10%" HorizontalAlignment="Right"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="735,392,0,0" VerticalAlignment="Top" Height="32" Width="55"/>
+        <Frame Source="Pages/PartnersPage.xaml"/>
     </Grid>
 </Window>

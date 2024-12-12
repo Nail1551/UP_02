@@ -23,27 +23,7 @@ namespace UP_02
         public MainWindow()
         {
             InitializeComponent();
-           partnersListView.ItemsSource= Entities.GetContext().Partners.ToList();
-        }
-        private void partnersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            /*if (partnersListView.SelectedItem is Partners selectedItem)
-            {
-                NavigationService.Navigate(new PartnerHistory(selectedItem));
-            }*/
-
-            if (partnersListView.SelectedItem is Partners selectedItem)
-            {
-             //   NavigationService.Navigate(new AddEditPage(selectedItem))
-            }
-
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.
+           
         }
     }
 }

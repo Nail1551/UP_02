@@ -33,7 +33,15 @@
         <TextBlock Text="Телефон" Grid.Row="5" Grid.Column="0" Margin="10,0,0,0"/>
         <TextBlock Text="Эл.почта" Grid.Row="6" Grid.Column="0" Margin="10,0,0,0"/>
         <TextBlock Text="Рейтинг" Grid.Row="7" Grid.Column="0" Margin="10,0,0,0"/>
-        <ComboBox  x:Name="Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" SelectedItem="{Binding PartnersType}"   DisplayMemberPath="Name" SelectedValuePath="PartnersTypeID"/>
+        <ComboBox  x:Name="Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" SelectedItem="{Binding PartnersType}"  DisplayMemberPath="Name" SelectedValuePath="PartnersTypeID"/>
+        <TextBox x:Name="Name" Margin="10,16,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CompanyName}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Address" Margin="10,16,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding LegalAddress}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="INN" Margin="10,16,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding INN}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Director" Margin="10,16,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding DirectorName}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Tel" Margin="10,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Phone}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Email" Margin="10,16,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Email}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Rating" Margin="10,0,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Rating}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <Button Grid.Column="1" Content="Сохранить" Margin="480,0,20,10" Grid.Row="8" VerticalAlignment="Bottom" Height="30" Width="80" Click="Button_Click"/>
 
     </Grid>
 </Page>

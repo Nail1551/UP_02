@@ -13,21 +13,21 @@ namespace UP_02
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
-        private static Entities _context;
 
-        public static Entities GetContext()
+        private static Entities1 _context;
+
+        public static Entities1 GetContext()
         {
             if (_context == null)
-                _context = new Entities();
+                _context = new Entities1();
             return _context;
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -38,6 +38,5 @@ namespace UP_02
         public virtual DbSet<PartnersType> PartnersType { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsType> ProductsType { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
