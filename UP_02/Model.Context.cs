@@ -15,12 +15,11 @@ namespace UP_02
     
     public partial class Entities1 : DbContext
     {
+        private static Entities1 _context;
         public Entities1()
             : base("name=Entities1")
         {
         }
-
-        private static Entities1 _context;
 
         public static Entities1 GetContext()
         {
@@ -28,6 +27,7 @@ namespace UP_02
                 _context = new Entities1();
             return _context;
         }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

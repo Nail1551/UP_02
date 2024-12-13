@@ -50,5 +50,22 @@ namespace UP_02.Pages
         {
             NavigationService.Navigate(new AddPage((sender as Button).DataContext as Partners));
         }
+
+        private void partnersListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ListBox listBox)
+            {
+
+                var selectedItem = listBox.SelectedItem as Partners;
+
+
+                if (selectedItem != null)
+                {
+                    NavigationService.Navigate(new Pages);
+                }
+            }
+        }
+
+      
     }
 }

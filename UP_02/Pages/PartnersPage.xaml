@@ -9,7 +9,7 @@
       Title="PartnersPage">
 
     <Grid>
-        <ListView Name="partnersListView"  HorizontalAlignment="Center"  >
+        <ListView Name="partnersListView"  HorizontalAlignment="Center" MouseDoubleClick="partnersListView_MouseDoubleClick"  ItemsSource="{Binding Partners}" SelectionChanged="partnersListView_SelectionChanged_1" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" Margin="5" BorderThickness="1" >
