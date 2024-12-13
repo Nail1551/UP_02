@@ -9,7 +9,7 @@
       Title="PartnersPage">
 
     <Grid>
-        <ListView Name="partnersListView"  HorizontalAlignment="Center" MouseDoubleClick="partnersListView_MouseDoubleClick"  ItemsSource="{Binding Partners}" SelectionChanged="partnersListView_SelectionChanged_1" >
+        <ListView Name="partnersListView"  HorizontalAlignment="Center" MouseDoubleClick="partnersListView_MouseDoubleClick"  ItemsSource="{Binding Partners}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" Margin="5" BorderThickness="1" >
@@ -33,15 +33,14 @@
                                     <TextBlock Text="{Binding Rating}"/>
                                     <TextBlock Text="%"/>
                                 </WrapPanel>
-
                             </WrapPanel>
-                            <TextBlock Text="10%" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Discount, StringFormat='{}{0}%'}" HorizontalAlignment="Right"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <Button Content="Добавить" Margin="0,0,10,10" HorizontalAlignment="Right" Width="60" Height="30" VerticalAlignment="Bottom" Click="Button_Click"/>
-        <Button Content="Редактировать" x:Name="Edit" Margin="26,0,684,10" Height="30" VerticalAlignment="Bottom" Click="Edit_Click"/>
+        <Button x:Name="HistoryBTN" Content="История" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="HistoryBTN_Click"/>
     </Grid>
 </Page>

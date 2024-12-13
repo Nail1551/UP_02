@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,26 +21,45 @@ namespace UP_02.Pages
     /// </summary>
     public partial class PartnersPage : Page
     {
+        private List<Partners> partners;
+
+        // Список данных о продажах
+        private List<PartnerProducts> salesData;
+
+
         public PartnersPage()
         {
             InitializeComponent();
-            partnersListView.ItemsSource = Entities1.GetContext().Partners.ToList();
-        }
-        private void partnersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            //partnersListView.ItemsSource = Entities1.GetContext().Partners.ToList();
+            partners = Entities1.GetContext().Partners.ToList();
 
-            /*if (partnersListView.SelectedItem is Partners selectedItem)
-            {
-                NavigationService.Navigate(new PartnerHistory(selectedItem));
-            }*/
+            salesData = Entities1.GetContext().PartnerProducts.ToList();
 
-            if (partnersListView.SelectedItem is Partners selectedItem)
+            if (salesData == null)
             {
-                //   NavigationService.Navigate(new AddEditPage(selectedItem))
+                MessageBox.Show("Данные о продажах отсутствуют!");
+                return;
             }
 
+            // Расчет скидок
+            var discounts = DiscountCalculator.CalculateDiscounts(salesData);
+
+            // Привязка скидок к данным о партнерах
+            foreach (var partner in partners)
+            {
+                if (discounts.ContainsKey(partner.PartnerID))
+                {
+                    partner.Discount = discounts[partner.PartnerID];
+                }
+            }
+
+            // Привязка данных к ListView
+            partnersListView.ItemsSource = partners;
+
+
 
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -61,11 +81,18 @@ namespace UP_02.Pages
 
                 if (selectedItem != null)
                 {
-                    NavigationService.Navigate(new Pages);
+                    NavigationService.Navigate(new AddPage(selectedItem));
                 }
             }
         }
 
-      
+        private void HistoryBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+            var selectedItem = partnersListView.SelectedItem as Partners;
+                NavigationService.Navigate(new HistoryPage(selectedItem));
+            
+        }
+
     }
 }

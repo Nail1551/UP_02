@@ -28,6 +28,7 @@ namespace UP_02
         public string DirectorName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public double Discount { get; set; }
         public Nullable<decimal> Rating { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
