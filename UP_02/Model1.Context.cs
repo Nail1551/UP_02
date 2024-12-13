@@ -16,23 +16,25 @@ namespace UP_02
     public partial class Entities1 : DbContext
     {
         private static Entities1 _context;
+
         public Entities1()
             : base("name=Entities1")
         {
         }
-
+        
         public static Entities1 GetContext()
         {
             if (_context == null)
                 _context = new Entities1();
             return _context;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<MaterialType> MaterialType { get; set; }
         public virtual DbSet<PartnerProducts> PartnerProducts { get; set; }
         public virtual DbSet<Partners> Partners { get; set; }
         public virtual DbSet<PartnersType> PartnersType { get; set; }

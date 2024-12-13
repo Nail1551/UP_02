@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f4bb2ae128b5456d92d4b70946d1d188" Name="Diagram1">
+      <Diagram DiagramId="895e5dde88aa4566bd5b058a4609b864" Name="Diagram1">
+        <EntityTypeShape EntityType="UP2_KugushevModel.MaterialType" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="UP2_KugushevModel.PartnerProducts" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="UP2_KugushevModel.Partners" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="UP2_KugushevModel.PartnersType" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />

@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище UP2_KugushevModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="materialType" />
+          </Key>
+          <Property Name="materialType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefectPercent" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="PartnerProducts">
           <Key>
             <PropertyRef Name="PartnerID" />
@@ -104,6 +111,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище UP2_KugushevModelContainer">
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartnerProducts" EntityType="Self.PartnerProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartnersType" EntityType="Self.PartnersType" Schema="dbo" store:Type="Tables" />
@@ -131,6 +139,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UP2_KugushevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="materialType1" />
+          </Key>
+          <Property Name="materialType1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefectPercent" Type="Double" Nullable="false" />
+        </EntityType>
         <EntityType Name="PartnerProducts">
           <Key>
             <PropertyRef Name="PartnerID" />
@@ -238,6 +253,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" />
           <EntitySet Name="PartnerProducts" EntityType="Self.PartnerProducts" />
           <EntitySet Name="Partners" EntityType="Self.Partners" />
           <EntitySet Name="PartnersType" EntityType="Self.PartnersType" />
@@ -266,6 +282,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище UP2_KugushevModelContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="MaterialType">
+            <EntityTypeMapping TypeName="UP2_KugushevModel.MaterialType">
+              <MappingFragment StoreEntitySet="MaterialType">
+                <ScalarProperty Name="materialType1" ColumnName="materialType" />
+                <ScalarProperty Name="DefectPercent" ColumnName="DefectPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PartnerProducts">
             <EntityTypeMapping TypeName="UP2_KugushevModel.PartnerProducts">
               <MappingFragment StoreEntitySet="PartnerProducts">
