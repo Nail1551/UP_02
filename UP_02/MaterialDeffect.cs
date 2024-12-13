@@ -19,7 +19,7 @@ namespace UP_02
             {
                 double coeff = (double)TypeProduct.Select(x => x.Ratio).FirstOrDefault();
                 double materCount = quantity + quantity * typeMaterial.Select(x => x.DefectPercent).FirstOrDefault();
-                result = materCount * par1 * par2 * materCount;
+                result = materCount * par1 * par2 * coeff;
                 return (int)Math.Ceiling(result);
             }
 
