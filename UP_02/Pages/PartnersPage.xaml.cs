@@ -99,8 +99,16 @@ namespace UP_02.Pages
         {
 
             var selectedItem = partnersListView.SelectedItem as Partners;
+            if (selectedItem != null)
+            {
                 NavigationService.Navigate(new HistoryPage(selectedItem));
-            
+                 
+            }
+            else
+            {
+                MessageBox.Show("Выберите партнера");
+            }
+
         }
 
     }
