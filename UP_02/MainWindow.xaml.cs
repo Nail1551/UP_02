@@ -25,5 +25,10 @@ namespace UP_02
             InitializeComponent();
            
         }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack) MainFrame.GoBack();
+        }
     }
 }

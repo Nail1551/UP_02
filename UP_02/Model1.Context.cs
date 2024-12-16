@@ -21,7 +21,7 @@ namespace UP_02
             : base("name=Entities1")
         {
         }
-        
+
         public static Entities1 GetContext()
         {
             if (_context == null)

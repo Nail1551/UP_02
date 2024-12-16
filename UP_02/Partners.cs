@@ -29,7 +29,7 @@ namespace UP_02
         public string Phone { get; set; }
         public string Email { get; set; }
         public double Discount { get; set; }
-        public Nullable<decimal> Rating { get; set; }
+        public Nullable<int> Rating { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PartnerProducts> PartnerProducts { get; set; }

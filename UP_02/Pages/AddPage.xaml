@@ -40,7 +40,7 @@
         <TextBox x:Name="Director" Margin="10,16,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding DirectorName}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
         <TextBox x:Name="Tel" Margin="10,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Phone}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
         <TextBox x:Name="Email" Margin="10,16,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Email}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
-        <TextBox x:Name="Rating" Margin="10,0,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Rating}" Grid.Column="1" HorizontalAlignment="Left" Width="290" />
+        <TextBox x:Name="Rating" Margin="10,0,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Rating}" Grid.Column="1" HorizontalAlignment="Left" Width="290"   />
         <Button Grid.Column="1" Content="Сохранить" Margin="480,0,20,10" Grid.Row="8" VerticalAlignment="Bottom" Height="30" Width="80" Click="Button_Click"/>
 
     </Grid>

@@ -21,5 +21,6 @@ namespace UP_02
     
         public virtual Partners Partners { get; set; }
         public virtual Products Products { get; set; }
+        public virtual Products Products1 { get; set; }
     }
 }

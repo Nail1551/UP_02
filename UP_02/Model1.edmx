@@ -34,7 +34,7 @@
           <Property Name="DirectorName" Type="varchar" MaxLength="255" />
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="Rating" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Rating" Type="int" />
         </EntityType>
         <EntityType Name="PartnersType">
           <Key>
@@ -74,7 +74,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PartnerPr__Produ__4222D4EF">
+        <Association Name="FK__PartnerPr__Produ__5441852A">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="PartnerProducts" Type="Self.PartnerProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PartnerProducts">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnerPr__Produ__619B8048">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="PartnerProducts" Type="Self.PartnerProducts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,6 +122,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Products__Produc__5629CD9C">
+          <End Role="ProductsType" Type="Self.ProductsType" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsType">
+              <PropertyRef Name="ProductsTypeID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище UP2_KugushevModelContainer">
           <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartnerProducts" EntityType="Self.PartnerProducts" Schema="dbo" store:Type="Tables" />
@@ -121,7 +145,11 @@
             <End Role="Partners" EntitySet="Partners" />
             <End Role="PartnerProducts" EntitySet="PartnerProducts" />
           </AssociationSet>
-          <AssociationSet Name="FK__PartnerPr__Produ__4222D4EF" Association="Self.FK__PartnerPr__Produ__4222D4EF">
+          <AssociationSet Name="FK__PartnerPr__Produ__5441852A" Association="Self.FK__PartnerPr__Produ__5441852A">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PartnerProducts" EntitySet="PartnerProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnerPr__Produ__619B8048" Association="Self.FK__PartnerPr__Produ__619B8048">
             <End Role="Products" EntitySet="Products" />
             <End Role="PartnerProducts" EntitySet="PartnerProducts" />
           </AssociationSet>
@@ -130,6 +158,10 @@
             <End Role="Partners" EntitySet="Partners" />
           </AssociationSet>
           <AssociationSet Name="FK__Products__Produc__440B1D61" Association="Self.FK__Products__Produc__440B1D61">
+            <End Role="ProductsType" EntitySet="ProductsType" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Produc__5629CD9C" Association="Self.FK__Products__Produc__5629CD9C">
             <End Role="ProductsType" EntitySet="ProductsType" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
@@ -156,7 +188,8 @@
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Partners" Relationship="Self.FK__PartnerPr__Partn__6754599E" FromRole="PartnerProducts" ToRole="Partners" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__PartnerPr__Produ__4222D4EF" FromRole="PartnerProducts" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__PartnerPr__Produ__5441852A" FromRole="PartnerProducts" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="Self.FK__PartnerPr__Produ__619B8048" FromRole="PartnerProducts" ToRole="Products" />
         </EntityType>
         <EntityType Name="Partners">
           <Key>
@@ -170,7 +203,7 @@
           <Property Name="DirectorName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Rating" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Rating" Type="Int32" />
           <NavigationProperty Name="PartnerProducts" Relationship="Self.FK__PartnerPr__Partn__6754599E" FromRole="Partners" ToRole="PartnerProducts" />
           <NavigationProperty Name="PartnersType" Relationship="Self.FK__Partners__Partne__693CA210" FromRole="Partners" ToRole="PartnersType" />
         </EntityType>
@@ -192,8 +225,10 @@
           <Property Name="ProductName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="MinPrice" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PartnerProducts" Relationship="Self.FK__PartnerPr__Produ__4222D4EF" FromRole="Products" ToRole="PartnerProducts" />
+          <NavigationProperty Name="PartnerProducts" Relationship="Self.FK__PartnerPr__Produ__5441852A" FromRole="Products" ToRole="PartnerProducts" />
+          <NavigationProperty Name="PartnerProducts1" Relationship="Self.FK__PartnerPr__Produ__619B8048" FromRole="Products" ToRole="PartnerProducts" />
           <NavigationProperty Name="ProductsType" Relationship="Self.FK__Products__Produc__440B1D61" FromRole="Products" ToRole="ProductsType" />
+          <NavigationProperty Name="ProductsType1" Relationship="Self.FK__Products__Produc__5629CD9C" FromRole="Products" ToRole="ProductsType" />
         </EntityType>
         <EntityType Name="ProductsType">
           <Key>
@@ -203,6 +238,7 @@
           <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Ratio" Type="Decimal" Precision="3" Scale="2" />
           <NavigationProperty Name="Products" Relationship="Self.FK__Products__Produc__440B1D61" FromRole="ProductsType" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="Self.FK__Products__Produc__5629CD9C" FromRole="ProductsType" ToRole="Products" />
         </EntityType>
         <Association Name="FK__PartnerPr__Partn__6754599E">
           <End Role="Partners" Type="Self.Partners" Multiplicity="1" />
@@ -216,7 +252,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PartnerPr__Produ__4222D4EF">
+        <Association Name="FK__PartnerPr__Produ__5441852A">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="PartnerProducts" Type="Self.PartnerProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PartnerProducts">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnerPr__Produ__619B8048">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="PartnerProducts" Type="Self.PartnerProducts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,6 +300,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Products__Produc__5629CD9C">
+          <End Role="ProductsType" Type="Self.ProductsType" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsType">
+              <PropertyRef Name="ProductsTypeID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MaterialType" EntityType="Self.MaterialType" />
           <EntitySet Name="PartnerProducts" EntityType="Self.PartnerProducts" />
@@ -263,7 +323,11 @@
             <End Role="Partners" EntitySet="Partners" />
             <End Role="PartnerProducts" EntitySet="PartnerProducts" />
           </AssociationSet>
-          <AssociationSet Name="FK__PartnerPr__Produ__4222D4EF" Association="Self.FK__PartnerPr__Produ__4222D4EF">
+          <AssociationSet Name="FK__PartnerPr__Produ__5441852A" Association="Self.FK__PartnerPr__Produ__5441852A">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PartnerProducts" EntitySet="PartnerProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnerPr__Produ__619B8048" Association="Self.FK__PartnerPr__Produ__619B8048">
             <End Role="Products" EntitySet="Products" />
             <End Role="PartnerProducts" EntitySet="PartnerProducts" />
           </AssociationSet>
@@ -272,6 +336,10 @@
             <End Role="Partners" EntitySet="Partners" />
           </AssociationSet>
           <AssociationSet Name="FK__Products__Produc__440B1D61" Association="Self.FK__Products__Produc__440B1D61">
+            <End Role="ProductsType" EntitySet="ProductsType" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Produc__5629CD9C" Association="Self.FK__Products__Produc__5629CD9C">
             <End Role="ProductsType" EntitySet="ProductsType" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>

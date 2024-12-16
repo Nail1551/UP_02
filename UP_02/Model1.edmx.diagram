@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="895e5dde88aa4566bd5b058a4609b864" Name="Diagram1">
+      <Diagram DiagramId="7e0116d192714471922489671bfb2616" Name="Diagram1">
         <EntityTypeShape EntityType="UP2_KugushevModel.MaterialType" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UP2_KugushevModel.PartnerProducts" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UP2_KugushevModel.Partners" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UP2_KugushevModel.PartnersType" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UP2_KugushevModel.PartnerProducts" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UP2_KugushevModel.Partners" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UP2_KugushevModel.PartnersType" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="UP2_KugushevModel.Products" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="UP2_KugushevModel.ProductsType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UP2_KugushevModel.ProductsType" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="UP2_KugushevModel.FK__PartnerPr__Partn__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="UP2_KugushevModel.FK__PartnerPr__Produ__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="UP2_KugushevModel.FK__PartnerPr__Produ__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="UP2_KugushevModel.FK__PartnerPr__Produ__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="UP2_KugushevModel.FK__Partners__Partne__693CA210" ManuallyRouted="false" />
         <AssociationConnector Association="UP2_KugushevModel.FK__Products__Produc__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="UP2_KugushevModel.FK__Products__Produc__5629CD9C" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

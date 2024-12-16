@@ -33,17 +33,46 @@ namespace UP_02
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentPartners.PartnerID == 0)
-                Entities1.GetContext().Partners.Add(_currentPartners);
-            try
+            StringBuilder errors = new StringBuilder();
+
+            if (Rating.Text != "")
             {
-                Entities1.GetContext().SaveChanges();
-                MessageBox.Show("Данные успешно сохранены!");
+                try
+                {
+                    _currentPartners.Rating = int.Parse(Rating.Text);
+                    if (int.Parse(Rating.Text) < 0) errors.AppendLine("Рейтинг не может быть отрицательным!");
+
+
+                }
+                catch (Exception)
+                {
+                    errors.AppendLine("Некорректное значение рейтинга!");
+                }
             }
-            catch (Exception ex)
+            if (errors.Length > 0)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+
+            else
+            {
+                if (_currentPartners.PartnerID == 0)
+                    Entities1.GetContext().Partners.Add(_currentPartners);
+                try
+                {
+                    Entities1.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно сохранены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
         }
     }
 }
+        
+    
+

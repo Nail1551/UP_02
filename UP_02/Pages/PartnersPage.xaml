@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UP_02.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PartnersPage">
+      Title="PartnersPage" IsVisibleChanged="Page_IsVisibleChanged" >
 
     <Grid>
         <ListView Name="partnersListView"  HorizontalAlignment="Center" MouseDoubleClick="partnersListView_MouseDoubleClick"  ItemsSource="{Binding Partners}">
@@ -31,7 +31,7 @@
                                 <WrapPanel Orientation="Horizontal" >
                                     <TextBlock Text="Рейтинг: "/>
                                     <TextBlock Text="{Binding Rating}"/>
-                                    <TextBlock Text="%"/>
+                                    
                                 </WrapPanel>
                             </WrapPanel>
                             <TextBlock Text="{Binding Discount, StringFormat='{}{0}%'}" HorizontalAlignment="Right"/>

@@ -60,7 +60,16 @@ namespace UP_02.Pages
 
         }
 
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
 
+            {
+                Entities1.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                partnersListView.ItemsSource = Entities1.GetContext().Partners.ToList();
+
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPage(null));

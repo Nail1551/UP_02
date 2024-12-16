@@ -18,6 +18,7 @@ namespace UP_02
         public Products()
         {
             this.PartnerProducts = new HashSet<PartnerProducts>();
+            this.PartnerProducts1 = new HashSet<PartnerProducts>();
         }
     
         public int ProductID { get; set; }
@@ -29,6 +30,9 @@ namespace UP_02
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PartnerProducts> PartnerProducts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PartnerProducts> PartnerProducts1 { get; set; }
         public virtual ProductsType ProductsType { get; set; }
+        public virtual ProductsType ProductsType1 { get; set; }
     }
 }
