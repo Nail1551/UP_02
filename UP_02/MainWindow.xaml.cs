@@ -30,5 +30,14 @@ namespace UP_02
         {
             if (MainFrame.CanGoBack) MainFrame.GoBack();
         }
+        private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
+        {
+            if (!(e.Content is Page page)) return;
+            this.Title = $"Мастер Пол - {page.Title}";
+
+            if (page is Pages.PartnersPage)
+                BackBTN.Visibility = Visibility.Hidden;
+            else BackBTN.Visibility = Visibility.Visible;
+        }
     }
 }

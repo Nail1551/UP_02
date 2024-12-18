@@ -31,7 +31,7 @@
                                 <WrapPanel Orientation="Horizontal" >
                                     <TextBlock Text="Рейтинг: "/>
                                     <TextBlock Text="{Binding Rating}"/>
-                                    
+
                                 </WrapPanel>
                             </WrapPanel>
                             <TextBlock Text="{Binding Discount, StringFormat='{}{0}%'}" HorizontalAlignment="Right"/>
@@ -42,5 +42,6 @@
         </ListView>
         <Button Content="Добавить" Margin="0,0,10,10" HorizontalAlignment="Right" Width="60" Height="30" VerticalAlignment="Bottom" Click="Button_Click"/>
         <Button x:Name="HistoryBTN" Content="История" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="HistoryBTN_Click"/>
+        <Image Margin="0,10,10,0" Source="Logo.png" Height="60" VerticalAlignment="Top" HorizontalAlignment="Right" Width="60" />
     </Grid>
 </Page>
