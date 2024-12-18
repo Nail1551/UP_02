@@ -67,10 +67,24 @@ namespace UP_02
 
             else
             {
+                if (string.IsNullOrWhiteSpace(_currentPartners.CompanyName))
+                    errors.AppendLine("Укажите наименование!");
+                if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
+                    errors.AppendLine("Укажите Адрес!");
+                if ((_currentPartners.PartnerType == null))
+                    errors.AppendLine("Выберите тип организации!");
+                if ((_currentPartners.Rating == null))
+                    errors.AppendLine("Введите рейтинг");
+                if (errors.Length > 0)
+                {
+                    MessageBox.Show(errors.ToString());
+                    return;
+                }
                 if (_currentPartners.PartnerID == 0)
                     Entities1.GetContext().Partners.Add(_currentPartners);
                 try
                 {
+                    
                     Entities1.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно сохранены!");
                 }
