@@ -54,8 +54,6 @@ namespace UP_02
                 errors.AppendLine("Укажите наименование!");
             if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
                 errors.AppendLine("Укажите Адрес!");
-            if ((_currentPartners.PartnerType == null))
-                errors.AppendLine("Выберите тип организации!");
             if ((_currentPartners.Rating == null))
                 errors.AppendLine("Введите рейтинг");
             if (errors.Length > 0)
@@ -71,8 +69,6 @@ namespace UP_02
                     errors.AppendLine("Укажите наименование!");
                 if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
                     errors.AppendLine("Укажите Адрес!");
-                if ((_currentPartners.PartnerType == null))
-                    errors.AppendLine("Выберите тип организации!");
                 if ((_currentPartners.Rating == null))
                     errors.AppendLine("Введите рейтинг");
                 if (errors.Length > 0)
