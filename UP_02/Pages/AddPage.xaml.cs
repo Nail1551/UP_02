@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,9 +32,31 @@ namespace UP_02
             DataContext = _currentPartners;
         }
 
+        private void Tel_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Разрешаем только цифры
+            e.Handled = !Regex.IsMatch(e.Text, @"^\d$");
+        }
+
+   
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
+
+            // Регулярное выражение для проверки ИНН
+            string innPattern = @"^\d{10}$";
+
+            // Проверка поля INN
+            if (!Regex.IsMatch(INN.Text, innPattern))
+            {
+                errors.AppendLine("ИНН должен содержать ровно 10 цифр и не должен содержать букв.");
+            }
+
+            if (string.IsNullOrWhiteSpace(_currentPartners.Email) || !_currentPartners.Email.Contains("@"))
+            {
+                errors.AppendLine("Email должен содержать символ @.");
+            }
 
             if (Rating.Text != "")
             {
@@ -41,9 +64,10 @@ namespace UP_02
                 {
                     _currentPartners.Rating = int.Parse(Rating.Text);
                     if (int.Parse(Rating.Text) < 0) errors.AppendLine("Рейтинг не может быть отрицательным!");
-                    
 
-
+                                       
+                    if (Type.SelectedItem == null)
+                        MessageBox.Show("Выберите тип организации!");
                 }
                 catch (Exception)
                 {
@@ -54,8 +78,7 @@ namespace UP_02
                 errors.AppendLine("Укажите наименование!");
             if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
                 errors.AppendLine("Укажите Адрес!");
-            if ((_currentPartners.PartnerType == null))
-                errors.AppendLine("Выберите тип организации!");
+
             if ((_currentPartners.Rating == null))
                 errors.AppendLine("Введите рейтинг");
             if (errors.Length > 0)
@@ -71,8 +94,6 @@ namespace UP_02
                     errors.AppendLine("Укажите наименование!");
                 if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
                     errors.AppendLine("Укажите Адрес!");
-                if ((_currentPartners.PartnerType == null))
-                    errors.AppendLine("Выберите тип организации!");
                 if ((_currentPartners.Rating == null))
                     errors.AppendLine("Введите рейтинг");
                 if (errors.Length > 0)
