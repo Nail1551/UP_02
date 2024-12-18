@@ -50,7 +50,7 @@ namespace UP_02
             // Проверка поля INN
             if (!Regex.IsMatch(INN.Text, innPattern))
             {
-                errors.AppendLine("ИНН должен содержать ровно 10 цифр и не должен содержать букв.");
+                errors.AppendLine("ИНН должен содержать ровно 10 цифр и не должен содержать букв !");
             }
 
             if (string.IsNullOrWhiteSpace(_currentPartners.Email) || !_currentPartners.Email.Contains("@"))
