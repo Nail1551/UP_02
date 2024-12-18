@@ -41,6 +41,7 @@ namespace UP_02
                 {
                     _currentPartners.Rating = int.Parse(Rating.Text);
                     if (int.Parse(Rating.Text) < 0) errors.AppendLine("Рейтинг не может быть отрицательным!");
+                    
 
 
                 }
@@ -49,6 +50,14 @@ namespace UP_02
                     errors.AppendLine("Некорректное значение рейтинга!");
                 }
             }
+            if (string.IsNullOrWhiteSpace(_currentPartners.CompanyName))
+                errors.AppendLine("Укажите наименование!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.LegalAddress))
+                errors.AppendLine("Укажите Адрес!");
+            if ((_currentPartners.PartnerType == null))
+                errors.AppendLine("Выберите тип организации!");
+            if ((_currentPartners.Rating == null))
+                errors.AppendLine("Введите рейтинг");
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
